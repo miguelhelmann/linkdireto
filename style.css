@@ -19,8 +19,8 @@
 
   /* Textos */
   --text-primary: #FFFFFF;
-  --text-secondary: #B4B9C8;
-  --text-muted: #727788;
+  --text-secondary: #CBD0DF;
+  --text-muted: #8E94A5;
   --text-inverse: #0A0B0D;
 
   /* Amarelo de Destaque Estratégico */
@@ -875,7 +875,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 2px 10px rgba(252, 190, 33, 0.2);
 }
 
-/* Grid de Projetos */
+/* Grid de Projetos & Portfólio Visual */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -885,15 +885,26 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1024px) {
   .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+  }
+
+  .portfolio-card-wide {
+    grid-column: span 7;
+  }
+
+  .portfolio-card-vert {
+    grid-column: span 5;
   }
 }
 
+.portfolio-card,
 .project-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -904,119 +915,102 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
+.portfolio-card:hover,
 .project-card:hover {
   transform: translateY(-6px);
   border-color: var(--border-medium);
   box-shadow: var(--shadow-lg);
 }
 
+.portfolio-card:hover .project-action-link svg,
 .project-card:hover .project-action-link svg {
   transform: translateX(4px);
 }
 
-/* Mockup Visual do Card */
-.project-preview {
+/* Frame de Navegador Real do Card */
+.portfolio-media-frame {
   position: relative;
-  height: 220px;
-  background-color: #0F1014;
+  background-color: #0B0C0E;
   border-bottom: 1px solid var(--border-subtle);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-.project-preview-topbar {
-  height: 28px;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
+.portfolio-browser-bar {
+  height: 32px;
+  background-color: rgba(14, 16, 20, 0.95);
   padding: 0 0.85rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 0.65rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   z-index: 2;
 }
 
-.preview-pill-url {
-  background-color: rgba(255, 255, 255, 0.08);
+.portfolio-browser-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.portfolio-browser-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.75;
+}
+
+.portfolio-browser-dots span:nth-child(1) { background-color: #EF4444; }
+.portfolio-browser-dots span:nth-child(2) { background-color: #F59E0B; }
+.portfolio-browser-dots span:nth-child(3) { background-color: #10B981; }
+
+.portfolio-browser-url {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-xs);
-  padding: 0.1rem 0.5rem;
-  font-size: 0.68rem;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.72rem;
   font-family: var(--font-mono);
   color: var(--text-muted);
+  letter-spacing: 0.01em;
 }
 
-/* Visual Canvas para cada tipo de projeto */
-.preview-canvas {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.25rem;
+/* Área da Imagem de Captura Real */
+.portfolio-image-wrap {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
   position: relative;
-  background-size: cover;
-  background-position: center;
+  background-color: #0B0C0E;
 }
 
-/* Estilos de preview temático para demonstrar a identidade de cada um */
-.preview-brasa {
-  background: linear-gradient(135deg, #1C0A06 0%, #2A130D 60%, #150604 100%);
-  border-left: 3px solid #E65100;
-}
-.preview-mendes {
-  background: linear-gradient(135deg, #0A1118 0%, #101C27 60%, #080D14 100%);
-  border-left: 3px solid #C5A059;
-}
-.preview-vertex {
-  background: linear-gradient(135deg, #0E160E 0%, #172418 60%, #0A100A 100%);
-  border-left: 3px solid #00E676;
-}
-.preview-lume {
-  background: linear-gradient(135deg, #141416 0%, #1F2024 60%, #121214 100%);
-  border-left: 3px solid #FFFFFF;
-}
-.preview-prime {
-  background: linear-gradient(135deg, #0F121C 0%, #141B2D 60%, #0C0F17 100%);
-  border-left: 3px solid #00B0FF;
-}
-.preview-lucas {
-  background: linear-gradient(135deg, #161208 0%, #241D0E 60%, #100D06 100%);
-  border-left: 3px solid #FCBE21;
+@media (min-width: 1024px) {
+  .portfolio-card-wide .portfolio-image-wrap {
+    height: 310px;
+  }
+  .portfolio-card-vert .portfolio-image-wrap {
+    height: 310px;
+  }
 }
 
-.preview-badge-cat {
-  position: absolute;
-  top: 36px;
-  right: 12px;
-  z-index: 2;
+.portfolio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform var(--transition-slow);
 }
 
-.canvas-brand-name {
-  font-size: 1.45rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.35rem;
-}
-
-.canvas-tagline {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 90%;
-}
-
-.canvas-cta-sim {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-xs);
-  width: fit-content;
+.portfolio-card:hover .portfolio-img,
+.project-card:hover .portfolio-img {
+  transform: scale(1.025);
 }
 
 /* Informações do Card */
+.portfolio-body,
 .project-info {
   padding: 1.5rem;
   display: flex;
@@ -1024,56 +1018,37 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1;
 }
 
+.portfolio-meta,
 .project-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
+.portfolio-category,
 .project-category {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--accent-yellow);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
+.portfolio-title,
 .project-title {
   font-size: 1.25rem;
-  margin-bottom: 0.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   color: var(--text-primary);
 }
 
+.portfolio-desc,
 .project-desc {
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.55;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
   flex: 1;
-}
-
-.project-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding-bottom: 1.25rem;
-  margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.project-features li {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.project-features li svg {
-  color: var(--accent-yellow);
-  flex-shrink: 0;
 }
 
 .project-action-link {
@@ -1081,16 +1056,18 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1rem;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-primary);
+  text-decoration: none;
   transition: all var(--transition-fast);
 }
 
+.portfolio-card:hover .project-action-link,
 .project-card:hover .project-action-link {
   background-color: var(--accent-yellow-bg);
   border-color: var(--accent-yellow-border);
@@ -1099,6 +1076,62 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-action-link svg {
   transition: transform var(--transition-fast);
+}
+
+/* Box CTA Contextual pós-projetos */
+.projects-cta-box {
+  margin-top: 3.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-normal);
+}
+
+.projects-cta-box:hover {
+  border-color: var(--border-medium);
+}
+
+.projects-cta-content {
+  max-width: 680px;
+}
+
+.projects-cta-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.projects-cta-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.projects-cta-box .btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .projects-cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .projects-cta-box .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ==========================================================================

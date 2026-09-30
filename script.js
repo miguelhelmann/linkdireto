@@ -78,12 +78,17 @@ function initContactAssistant() {
   if (!btnWhatsapp || !btnEmail) return;
 
   const buildMessage = () => {
-    const solution = typeSelect ? typeSelect.value : 'quero conversar sobre um site';
     const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : '';
     const details = detailsInput && detailsInput.value.trim() ? detailsInput.value.trim() : '';
+    const solution = typeSelect ? typeSelect.value : '';
+
+    // Se não preencheu campos extras, envia a mensagem amigável e direta padrão
+    if (!name && !details && (!solution || solution === 'quero criar um site' || solution === 'ainda não sei, quero conversar')) {
+      return 'Olá! Conheci a Link Direto pelo site e gostaria de saber mais sobre os projetos.';
+    }
 
     let greeting = name ? `Olá! Me chamo ${name}.` : 'Olá!';
-    let body = `Visitei o site da Link Direto e ${solution}.`;
+    let body = `Conheci a Link Direto pelo site e ${solution || 'gostaria de saber mais sobre os projetos'}.`;
     if (details) {
       body += ` Detalhes: "${details}".`;
     }
