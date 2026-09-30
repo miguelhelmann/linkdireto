@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <rect width="48" height="48" rx="10" fill="#0B0C0E"/>
+  <!-- Direct path / link symbol -->
+  <circle cx="14" cy="34" r="5" fill="#FFFFFF"/>
+  <circle cx="34" cy="14" r="5" fill="#FCBE21"/>
+  <!-- Connecting direct vector line -->
+  <line x1="17.5" y1="30.5" x2="30.5" y2="17.5" stroke="#FCBE21" stroke-width="4" stroke-linecap="round"/>
+  <!-- Arrow notch accent for direction -->
+  <path d="M26 14 H34 V22" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

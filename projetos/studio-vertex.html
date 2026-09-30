@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Vertex — Performance & Treinamento de Força | Projeto Demonstrativo Link Direto</title>
+  <meta name="description" content="Conceito demonstrativo para academias e centros de performance esportiva criado pela Link Direto. Treinos intensos, metodologia progressiva e agendamento via WhatsApp.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="projetos.css">
+  <style>
+    /* ==========================================================================
+       STUDIO VERTEX — ENERGIA, MOVIMENTO & TIPOGRAFIA PESADA
+       Paleta: Preto Absoluto (#050505), Chumbo Grafite (#111114), 
+       Verde Neon Ácido (#00FF66), Branco Puro (#FFFFFF).
+       Estética brutalista, assimétrica e de alta voltagem atlética.
+       ========================================================================== */
+    :root {
+      --v-black: #060608;
+      --v-surface: #101116;
+      --v-card: #161820;
+      --v-neon: #00FF66;
+      --v-neon-glow: rgba(0, 255, 102, 0.25);
+      --v-neon-dark: #00CC52;
+      --v-white: #FFFFFF;
+      --v-muted: #8E92A4;
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--v-black);
+      color: #E2E8F0;
+      font-family: var(--font-body);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Barra Superior com Atitude */
+    .vertex-nav {
+      position: sticky;
+      top: var(--banner-height);
+      background: rgba(6, 6, 8, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 2px solid #1E212B;
+      z-index: 100;
+      padding: 1rem clamp(1.25rem, 4vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .vertex-brand {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .vertex-neon-tag {
+      background: var(--v-neon);
+      color: #060608;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      letter-spacing: 1px;
+    }
+
+    .vertex-nav-links {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--v-muted);
+    }
+
+    .vertex-nav-links a:hover {
+      color: var(--v-neon);
+    }
+
+    @media (min-width: 860px) {
+      .vertex-nav-links { display: flex; }
+    }
+
+    .btn-neon-action {
+      background: var(--v-neon);
+      color: #060608;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.65rem 1.4rem;
+      border-radius: 4px;
+      transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-neon-action:hover {
+      background: #FFFFFF;
+      box-shadow: 0 0 25px var(--v-neon);
+      transform: translateY(-2px);
+    }
+
+    .vertex-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    /* ==========================================================================
+       HERO AGRESSIVO & ENERGIA VISUAL
+       ========================================================================== */
+    .hero-vertex {
+      padding: clamp(3.5rem, 7vw, 6.5rem) 0 clamp(3rem, 5vw, 5rem);
+      position: relative;
+      border-bottom: 2px solid #1A1D27;
+      background: radial-gradient(circle at 80% 30%, rgba(0, 255, 102, 0.08) 0%, transparent 60%);
+    }
+
+    .hero-vertex-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero-vertex-inner {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    .vertex-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--v-neon);
+      background: rgba(0, 255, 102, 0.08);
+      border: 1px solid rgba(0, 255, 102, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-vertex h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: #FFFFFF;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero-vertex h1 span {
+      color: var(--v-neon);
+      display: inline-block;
+    }
+
+    .hero-vertex-lead {
+      font-size: 1.15rem;
+      color: var(--v-muted);
+      line-height: 1.65;
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-vertex-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .btn-neon-lg {
+      background: var(--v-neon);
+      color: #060608;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 1.05rem 2.2rem;
+      border-radius: 4px;
+      transition: all 160ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-neon-lg:hover {
+      background: #FFFFFF;
+      box-shadow: 0 0 35px var(--v-neon);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-athletic {
+      border: 2px solid #2A2E3D;
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.95rem 1.85rem;
+      border-radius: 4px;
+      transition: all 160ms ease;
+    }
+
+    .btn-outline-athletic:hover {
+      border-color: var(--v-neon);
+      color: var(--v-neon);
+    }
+
+    /* Painel Lateral com Métricas de Atitude */
+    .hero-stats-panel {
+      background: var(--v-surface);
+      border: 1px solid #232734;
+      border-radius: 6px;
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .stat-hero-block {
+      display: flex;
+      flex-direction: column;
+      border-left: 4px solid var(--v-neon);
+      padding-left: 1.25rem;
+    }
+
+    .stat-hero-num {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-hero-num em {
+      color: var(--v-neon);
+      font-style: normal;
+    }
+
+    .stat-hero-label {
+      font-size: 0.88rem;
+      color: var(--v-muted);
+      font-weight: 500;
+    }
+
+    /* Ticker / Faixa de Movimento */
+    .ticker-bar {
+      background: #0E0F14;
+      border-bottom: 2px solid #1E212B;
+      padding: 0.9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 3rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #FFFFFF;
+    }
+
+    .ticker-track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .ticker-track span::before {
+      content: '■';
+      color: var(--v-neon);
+      font-size: 0.75rem;
+    }
+
+    /* ==========================================================================
+       SEÇÃO: O MÉTODO VERTEX (BLOCOS ASSIMÉTRICOS)
+       ========================================================================== */
+    .method-section {
+      padding: 5.5rem 0;
+      border-bottom: 2px solid #1A1D27;
+    }
+
+    .method-header {
+      margin-bottom: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .method-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .method-blocks-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 860px) {
+      .method-blocks-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .method-card {
+      background: var(--v-surface);
+      border: 1px solid #232734;
+      border-radius: 6px;
+      padding: 2.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .method-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--v-neon);
+    }
+
+    .method-big-num {
+      font-family: var(--font-mono);
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.08);
+      line-height: 1;
+      margin-bottom: 1rem;
+      transition: color 180ms;
+    }
+
+    .method-card:hover .method-big-num {
+      color: var(--v-neon);
+    }
+
+    .method-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .method-card p {
+      font-size: 0.92rem;
+      color: var(--v-muted);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       SEÇÃO: ESTRUTURA SEM FRESCURA
+       ========================================================================== */
+    .facility-section {
+      padding: 5.5rem 0;
+      border-bottom: 2px solid #1A1D27;
+      background: #0B0C10;
+    }
+
+    .facility-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .facility-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .facility-copy h2 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 1.25rem;
+      line-height: 1.1;
+    }
+
+    .facility-copy p {
+      font-size: 1.05rem;
+      color: var(--v-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .facility-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .facility-checklist li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .facility-check-icon {
+      color: var(--v-neon);
+      font-family: var(--font-mono);
+      font-weight: 800;
+    }
+
+    .facility-callout-box {
+      background: var(--v-surface);
+      border: 2px solid var(--v-neon);
+      border-radius: 6px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 10px 30px var(--v-neon-glow);
+    }
+
+    .facility-callout-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+    }
+
+    .facility-callout-box p {
+      color: var(--v-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ==========================================================================
+       SEÇÃO: COMECE COM 1 AULA EXPERIMENTAL (CTA)
+       ========================================================================== */
+    .start-vertex-section {
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .start-box-centered {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .start-box-centered h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      text-transform: uppercase;
+      color: #FFFFFF;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .start-box-centered p {
+      font-size: 1.15rem;
+      color: var(--v-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner de Transparência Link Direto -->
+  <aside class="demo-top-banner" aria-label="Aviso de Projeto Demonstrativo">
+    <div class="demo-banner-content">
+      <span class="demo-pill">Conceito Demonstrativo</span>
+      <span class="demo-banner-text">
+        Criado pela <strong>Link Direto</strong> para demonstrar presença comercial agressiva e conversão de alunos em academias e estúdios fitness.
+      </span>
+    </div>
+    <div class="demo-banner-actions">
+      <a href="../index.html#projetos" class="btn-banner-back">← Voltar à Link Direto</a>
+      <a href="../index.html#contato" class="btn-banner-cta">Quero um site para minha academia</a>
+    </div>
+  </aside>
+
+  <div class="demo-page-wrapper">
+    <!-- Header com Atitude Vertex -->
+    <header class="vertex-nav">
+      <div class="vertex-brand">
+        STUDIO VERTEX <span class="vertex-neon-tag">PERFORMANCE</span>
+      </div>
+
+      <ul class="vertex-nav-links">
+        <li><a href="#metodo">O Método</a></li>
+        <li><a href="#estrutura">Estrutura</a></li>
+        <li><a href="#horarios">Horários</a></li>
+        <li><a href="#agendar">Aula Experimental</a></li>
+      </ul>
+
+      <a href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20garantir%20minha%20aula%20experimental%20no%20Studio%20Vertex." target="_blank" rel="noopener" class="btn-neon-action">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span>Aula Experimental Grátis</span>
+      </a>
+    </header>
+
+    <main>
+      <!-- HERO VERTEX -->
+      <section class="hero-vertex">
+        <div class="vertex-container">
+          <div class="hero-vertex-inner">
+            <div>
+              <div class="vertex-pill">
+                <span>Treino Sério • Sem Frescura</span>
+              </div>
+              <h1>
+                Treino com método. <span>Resultado que você sente</span> no espelho.
+              </h1>
+              <p class="hero-vertex-lead">
+                Estrutura pensada para treinos consistentes, com metodologia clara, foco em evolução física e acompanhamento próximo dos instrutores.
+              </p>
+              <div class="hero-vertex-actions">
+                <a href="https://wa.me/?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20no%20Vertex." target="_blank" rel="noopener" class="btn-neon-lg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                  <span>Agendar Aula Grátis no WhatsApp</span>
+                </a>
+                <a href="#metodo" class="btn-outline-athletic">
+                  Conhecer o Método
+                </a>
+              </div>
+            </div>
+
+            <!-- Painel de Métricas Sem Frescura -->
+            <div class="hero-stats-panel">
+              <div class="stat-hero-block">
+                <span class="stat-hero-num" style="font-size: 1.85rem;">TURMAS <em>REDUZIDAS</em></span>
+                <span class="stat-hero-label">Capacidade limitada por horário para garantir que o treinador corrija cada movimento e postura.</span>
+              </div>
+
+              <div class="stat-hero-block">
+                <span class="stat-hero-num" style="font-size: 1.85rem;">TEMPO <em>OTIMIZADO</em></span>
+                <span class="stat-hero-label">Estrutura organizada para que seu treino flua sem interrupções ou disputa por aparelhos.</span>
+              </div>
+
+              <div class="stat-hero-block">
+                <span class="stat-hero-num" style="font-size: 1.85rem;">MÉTODO <em>PROGRESSIVO</em></span>
+                <span class="stat-hero-label">Sessões densas de 50 minutos com controle real de sobrecarga para evolução segura.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TICKER DE ATITUDE -->
+      <div class="ticker-bar">
+        <div class="ticker-track">
+          <span>Treinamento de Força Progressivo</span>
+          <span>Biomecânica Aplicada</span>
+          <span>Acompanhamento Técnico Contínuo</span>
+          <span>Vestiários com Ducha e Toalhas</span>
+          <span>Treinadores Formados e Atentos</span>
+        </div>
+      </div>
+
+      <!-- O MÉTODO VERTEX -->
+      <section id="metodo" class="method-section">
+        <div class="vertex-container">
+          <div class="method-header">
+            <span class="vertex-pill" style="width: fit-content;">Pilares de Treino</span>
+            <h2>Como nós construímos o seu resultado</h2>
+          </div>
+
+          <div class="method-blocks-grid">
+            <div class="method-card">
+              <span class="method-big-num">01</span>
+              <h3>Força & Hipertrofia Real</h3>
+              <p>Trabalho com barras, halteres pesados e cabos. Aprendizado correto de agachamento, levantamento terra e supino para ganho de massa magra consistente.</p>
+            </div>
+
+            <div class="method-card">
+              <span class="method-big-num">02</span>
+              <h3>Condicionamento de Alta Densidade</h3>
+              <p>Intervalos controlados com remo indoor, air bike e trenós de empurre. Queima calórica elevada e ganho de capacidade cardiovascular sem destruir suas articulações.</p>
+            </div>
+
+            <div class="method-card">
+              <span class="method-big-num">03</span>
+              <h3>Longevidade & Mobilidade Articular</h3>
+              <p>Descompressão de coluna, mobilidade de quadril e fortalecimento do core em todas as sessões para você treinar pesado sem dores crônicas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ESTRUTURA REAL -->
+      <section id="estrutura" class="facility-section">
+        <div class="vertex-container">
+          <div class="facility-grid">
+            <div class="facility-copy">
+              <h2>Um ambiente pensado para quem leva treino a sério.</h2>
+              <p>
+                Esqueça luzes estroboscópicas e música alta ensurdecedora. No Vertex você encontra piso emborrachado de alta absorção, barras olímpicas calibradas, anilhas de competição e ar-condicionado na temperatura correta para você focar no que importa.
+              </p>
+              <ul class="facility-checklist">
+                <li><span class="facility-check-icon">—</span> Equipamentos de musculação de padrão internacional</li>
+                <li><span class="facility-check-icon">—</span> Armários privativos com chave e duchas pressurizadas</li>
+                <li><span class="facility-check-icon">—</span> Estacionamento com vaga rápida em frente ao estúdio</li>
+                <li><span class="facility-check-icon">—</span> Bebedouros de água gelada de alta vazão</li>
+              </ul>
+            </div>
+
+            <div class="facility-callout-box">
+              <h3>Venha fazer seu primeiro treino</h3>
+              <p>Agende uma sessão gratuita. Sem pressão de vendas e sem contrato fidelidade de 12 meses forçado.</p>
+              <a href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20marcar%20minha%20aula%20experimental%20no%20Studio%20Vertex." target="_blank" rel="noopener" class="btn-neon-lg" style="width: 100%; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span>Marcar no WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL VERTEX -->
+      <section id="agendar" class="start-vertex-section">
+        <div class="vertex-container">
+          <div class="start-box-centered">
+            <h2>Pronto para treinar como você nunca treinou antes?</h2>
+            <p>Escolha o melhor dia e horário da sua semana para vir conhecer o nosso espaço e sentir o método na pele.</p>
+            <a href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20minha%20aula%20experimental%20no%20Studio%20Vertex." target="_blank" rel="noopener" class="btn-neon-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              <span>Agendar Minha Aula Experimental Grátis</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Demonstrativo Link Direto -->
+    <footer class="demo-footer">
+      <div class="demo-footer-box">
+        <h4>Quer uma landing page com esta energia comercial para o seu estúdio ou academia?</h4>
+        <p>A Link Direto projeta páginas que eliminam atritos, apresentam sua estrutura com impacto visual e colocam novos alunos direto no seu WhatsApp todos os dias.</p>
+        <a href="../index.html#contato" class="btn-banner-cta" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
+          Solicitar um site para meu estúdio / academia
+        </a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

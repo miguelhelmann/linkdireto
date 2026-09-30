@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafael Mendes — Advocacia Empresarial & Cível | Projeto Demonstrativo Link Direto</title>
+  <meta name="description" content="Conceito demonstrativo para escritórios de advocacia criado pela Link Direto. Posicionamento sóbrio, áreas de atuação e agendamento de consulta jurídica.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="projetos.css">
+  <style>
+    /* ==========================================================================
+       DR. RAFAEL MENDES — ADVOCACIA SÓBRIA & EDITORIAL
+       Paleta: Azul Noite Profundo (#070C14), Ardósia Nobre (#0F1726), 
+       Linhas Finas de Giz (#1E293B), Ouro Velho Sutil (#C5A059), Branco Marfim (#F8FAFC).
+       Zero estética de SaaS, zero gradientes berrantes.
+       ========================================================================== */
+    :root {
+      --law-bg: #070C14;
+      --law-surface: #0D1522;
+      --law-border: rgba(255, 255, 255, 0.1);
+      --law-border-gold: rgba(197, 160, 89, 0.35);
+      --law-gold: #C5A059;
+      --law-gold-muted: #9E824C;
+      --law-text: #F1F5F9;
+      --law-text-muted: #94A3B8;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-title: 'Cinzel', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--law-bg);
+      color: var(--law-text);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      background-image: linear-gradient(to bottom, #070C14 0%, #0A111C 100%);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Barra Superior Discreta */
+    .law-nav {
+      position: sticky;
+      top: var(--banner-height);
+      background: rgba(7, 12, 20, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--law-border);
+      z-index: 100;
+      padding: 1.35rem clamp(1.25rem, 4vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .law-brand-title {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      letter-spacing: 2px;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .law-brand-tag {
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--law-gold);
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    .law-nav-links {
+      display: none;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      color: var(--law-text-muted);
+    }
+
+    .law-nav-links a:hover {
+      color: #FFFFFF;
+    }
+
+    @media (min-width: 860px) {
+      .law-nav-links { display: flex; }
+    }
+
+    .btn-law-consult {
+      border: 1px solid var(--law-gold-muted);
+      color: var(--law-gold);
+      padding: 0.55rem 1.25rem;
+      border-radius: 2px;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all 180ms ease;
+    }
+
+    .btn-law-consult:hover {
+      background: var(--law-gold);
+      color: #070C14;
+    }
+
+    /* Container Editorial */
+    .law-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+
+    /* ==========================================================================
+       HERO SÓBRIO & FOCO NO PROFISSIONAL
+       ========================================================================== */
+    .hero-law {
+      padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(3.5rem, 6vw, 5.5rem);
+      border-bottom: 1px solid var(--law-border);
+      position: relative;
+    }
+
+    .hero-law-pre {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--law-gold);
+      margin-bottom: 1.75rem;
+      display: inline-block;
+      border-bottom: 1px solid var(--law-border-gold);
+      padding-bottom: 0.25rem;
+    }
+
+    .hero-law h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+      max-width: 860px;
+    }
+
+    .hero-law h1 span {
+      font-style: italic;
+      color: #E2E8F0;
+    }
+
+    .hero-law-lead {
+      font-size: 1.12rem;
+      color: var(--law-text-muted);
+      line-height: 1.8;
+      max-width: 660px;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero-law-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .btn-law-primary {
+      background: var(--law-gold);
+      color: #070C14;
+      padding: 0.95rem 1.85rem;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: background 160ms, transform 160ms;
+    }
+
+    .btn-law-primary:hover {
+      background: #D8B46E;
+      transform: translateY(-1px);
+    }
+
+    .law-contact-prompt {
+      font-size: 0.88rem;
+      color: var(--law-text-muted);
+    }
+
+    /* ==========================================================================
+       SEÇÃO: FILOSOFIA DE ATUAÇÃO
+       ========================================================================== */
+    .about-law-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--law-border);
+    }
+
+    .about-law-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 820px) {
+      .about-law-grid {
+        grid-template-columns: 0.8fr 1.2fr;
+        align-items: baseline;
+      }
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      color: var(--law-gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .about-law-statement {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      line-height: 1.5;
+      color: #FFFFFF;
+      margin-bottom: 1.75rem;
+    }
+
+    .about-law-text {
+      color: var(--law-text-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ==========================================================================
+       SEÇÃO: ÁREAS DE ATUAÇÃO (LAYOUT EDITORIAL DE LINHAS FINAS)
+       ========================================================================== */
+    .areas-editorial-section {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--law-border);
+    }
+
+    .areas-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .areas-header h2 {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+    }
+
+    .areas-list-editorial {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .area-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 2.25rem 0;
+      border-top: 1px solid var(--law-border);
+      gap: 1.25rem;
+      transition: background-color 150ms ease;
+    }
+
+    @media (min-width: 768px) {
+      .area-row {
+        grid-template-columns: 80px 1.1fr 1.5fr;
+        align-items: baseline;
+        gap: 2rem;
+      }
+    }
+
+    .area-row:last-child {
+      border-bottom: 1px solid var(--law-border);
+    }
+
+    .area-idx {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: var(--law-gold);
+      letter-spacing: 1px;
+    }
+
+    .area-title-col h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+
+    .area-desc-col p {
+      font-size: 0.95rem;
+      color: var(--law-text-muted);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       SEÇÃO: DIRETRIZES ÉTICAS & CONDUTA
+       ========================================================================== */
+    .ethics-section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--law-border);
+    }
+
+    .ethics-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .ethics-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .ethics-item {
+      padding-right: 1.5rem;
+    }
+
+    .ethics-item h4 {
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      margin-bottom: 0.65rem;
+    }
+
+    .ethics-item p {
+      font-size: 0.9rem;
+      color: var(--law-text-muted);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       SEÇÃO: CONTATO & AGENDAMENTO DE CONSULTA
+       ========================================================================== */
+    .contact-law-section {
+      padding: 5.5rem 0;
+    }
+
+    .contact-law-panel {
+      background: var(--law-surface);
+      border: 1px solid var(--law-border-gold);
+      border-radius: 4px;
+      padding: clamp(2.5rem, 6vw, 4.5rem);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 860px) {
+      .contact-law-panel {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+      }
+    }
+
+    .contact-law-panel h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      color: #FFFFFF;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .contact-law-panel p {
+      color: var(--law-text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 0.92rem;
+      color: #E2E8F0;
+      border-top: 1px solid var(--law-border);
+      padding-top: 1.5rem;
+    }
+
+    .contact-action-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      text-align: center;
+      background: rgba(7, 12, 20, 0.6);
+      padding: 2.25rem;
+      border: 1px solid var(--law-border);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner de Transparência Link Direto -->
+  <aside class="demo-top-banner" aria-label="Aviso de Projeto Demonstrativo">
+    <div class="demo-banner-content">
+      <span class="demo-pill">Conceito Demonstrativo</span>
+      <span class="demo-banner-text">
+        Criado pela <strong>Link Direto</strong> para demonstrar o posicionamento sóbrio e ético para advogados e escritórios.
+      </span>
+    </div>
+    <div class="demo-banner-actions">
+      <a href="../index.html#projetos" class="btn-banner-back">← Voltar à Link Direto</a>
+      <a href="../index.html#contato" class="btn-banner-cta">Quero um site para meu escritório</a>
+    </div>
+  </aside>
+
+  <div class="demo-page-wrapper">
+    <!-- Navegação Sóbria -->
+    <header class="law-nav">
+      <div>
+        <div class="law-brand-title">RAFAEL MENDES</div>
+        <span class="law-brand-tag">Advocacia Empresarial & Cível</span>
+      </div>
+
+      <ul class="law-nav-links">
+        <li><a href="#atuacao">Áreas de Atuação</a></li>
+        <li><a href="#abordagem">Abordagem de Trabalho</a></li>
+        <li><a href="#diretrizes">Diretrizes Éticas</a></li>
+        <li><a href="#contato">Atendimento</a></li>
+      </ul>
+
+      <a href="https://wa.me/?text=Ol%C3%A1%20Dr.%20Rafael,%20gostaria%20de%20solicitar%20uma%20consulta%20jur%C3%ADdica%20pr%C3%A9via." target="_blank" rel="noopener" class="btn-law-consult">
+        Consulta Prévia
+      </a>
+    </header>
+
+    <main>
+      <!-- HERO EDITORIAL -->
+      <section class="hero-law">
+        <div class="law-container">
+          <span class="hero-law-pre">Assessoria Jurídica Estratégica</span>
+          <h1>
+            Prevenção de riscos contratuais e <span>condução técnica</span> de demandas societárias complexas.
+          </h1>
+          <p class="hero-law-lead">
+            Atendimento direto aos sócios e gestores, com foco na sustentabilidade jurídica do negócio, transparência nos honorários e comunicação sem jargões desnecessários.
+          </p>
+          <div class="hero-law-actions">
+            <a href="https://wa.me/?text=Ol%C3%A1%20Dr.%20Rafael,%20gostaria%20de%20agendar%20uma%20consulta%20jur%C3%ADdica." target="_blank" rel="noopener" class="btn-law-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              <span>Agendar Consulta Jurídica</span>
+            </a>
+            <span class="law-contact-prompt">Atendimento sob sigilo profissional estrito</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FILOSOFIA & ABORDAGEM -->
+      <section id="abordagem" class="about-law-section">
+        <div class="law-container">
+          <div class="about-law-grid">
+            <div>
+              <span class="section-eyebrow">Abordagem</span>
+            </div>
+            <div>
+              <p class="about-law-statement">
+                "O melhor litígio é aquele evitado por uma cláusula bem negociada e pela compreensão clara dos riscos da operação."
+              </p>
+              <div class="about-law-text">
+                <p>
+                  A assessoria jurídica não deve ser um entrave para o desenvolvimento comercial da sua empresa, mas um instrumento de previsibilidade. Cada parecer ou minuta é redigido para oferecer segurança prática aos tomadores de decisão.
+                </p>
+                <p>
+                  Privilegiamos o envolvimento direto em cada caso, garantindo que as especificidades da sua atividade econômica sejam plenamente assimiladas antes da formulação de qualquer estratégia legal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ÁREAS DE ATUAÇÃO (LAYOUT EDITORIAL) -->
+      <section id="atuacao" class="areas-editorial-section">
+        <div class="law-container">
+          <div class="areas-header">
+            <span class="section-eyebrow">Especialidades</span>
+            <h2>Áreas de Atuação Jurídica</h2>
+          </div>
+
+          <div class="areas-list-editorial">
+            <div class="area-row">
+              <span class="area-idx">01</span>
+              <div class="area-title-col">
+                <h3>Direito Societário & Governança</h3>
+              </div>
+              <div class="area-desc-col">
+                <p>Estruturação de acordos de quotistas e acionistas, prevenção de impasses entre sócios, alteração de contratos sociais e orientação para entrada ou saída de investidores.</p>
+              </div>
+            </div>
+
+            <div class="area-row">
+              <span class="area-idx">02</span>
+              <div class="area-title-col">
+                <h3>Contratos Comerciais & Negociação</h3>
+              </div>
+              <div class="area-desc-col">
+                <p>Elaboração e auditoria minuciosa de instrumentos contratuais com fornecedores, distribuidores e parceiros, com foco em equilíbrio de obrigações e mitigação de responsabilidades.</p>
+              </div>
+            </div>
+
+            <div class="area-row">
+              <span class="area-idx">03</span>
+              <div class="area-title-col">
+                <h3>Planejamento Sucessório & Patrimonial</h3>
+              </div>
+              <div class="area-desc-col">
+                <p>Organização prévia e segura do patrimônio familiar e empresarial, visando a continuidade tranquila do negócio e a redução de atritos sucessórios futuros.</p>
+              </div>
+            </div>
+
+            <div class="area-row">
+              <span class="area-idx">04</span>
+              <div class="area-title-col">
+                <h3>Contencioso Cível Estratégico</h3>
+              </div>
+              <div class="area-desc-col">
+                <p>Representação em disputas contratuais, cobranças judiciais e defesas em ações cíveis de relevância patrimonial perante os tribunais estaduais e superiores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIRETRIZES ÉTICAS -->
+      <section id="diretrizes" class="ethics-section">
+        <div class="law-container">
+          <div class="ethics-grid">
+            <div class="ethics-item">
+              <h4>Comunicação Direta</h4>
+              <p>Relatórios objetivos e atualização periódica do andamento processual sem vocabulário excessivamente técnico.</p>
+            </div>
+
+            <div class="ethics-item">
+              <h4>Transparência Financeira</h4>
+              <p>Critérios objetivos e prévios para fixação de honorários contratuais e sucumbenciais, formalizados em instrumento escrito.</p>
+            </div>
+
+            <div class="ethics-item">
+              <h4>Sigilo Profissional</h4>
+              <p>Absoluta discrição e confidencialidade no tratamento de documentos, segredos industriais e informações societárias.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTATO & CONSULTA PRÉVIA -->
+      <section id="contato" class="contact-law-section">
+        <div class="law-container">
+          <div class="contact-law-panel">
+            <div>
+              <span class="section-eyebrow">Atendimento</span>
+              <h2>Inicie uma conversa jurídica prévia</h2>
+              <p>
+                Apresente brevemente o cenário da sua empresa ou a demanda contratual existente para avaliação inicial de viabilidade e agendamento de reunião.
+              </p>
+
+              <div class="contact-details-list">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span><strong>Endereço Profissional:</strong> Edifício Corporativo Central, Sala 1402 (Conceito Demonstrativo)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span><strong>Atendimento:</strong> Segunda a Sexta, das 09h00 às 18h00 com hora marcada</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-action-box">
+              <h3 style="font-family: var(--font-title); font-size: 1.15rem; color: #FFFFFF;">Agendamento Direto</h3>
+              <p style="font-size: 0.88rem; margin: 0; color: var(--law-text-muted);">
+                Triagem preliminar rápida realizada diretamente pelo WhatsApp do escritório.
+              </p>
+              <a href="https://wa.me/?text=Ol%C3%A1%20Dr.%20Rafael,%20gostaria%20de%20apresentar%20uma%20consulta%20jur%C3%ADdica%20para%20minha%20empresa." target="_blank" rel="noopener" class="btn-law-primary" style="justify-content: center; font-size: 0.92rem; padding: 1rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span>Enviar Mensagem no WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Demonstrativo Link Direto -->
+    <footer class="demo-footer">
+      <div class="demo-footer-box">
+        <h4>Advogado ou escritório: você quer um site com este nível de sobriedade e elegância?</h4>
+        <p>A Link Direto projeta páginas que respeitam integralmente as diretrizes éticas da OAB, valorizam seu conhecimento técnico e facilitam o primeiro contato de potenciais clientes corporativos.</p>
+        <a href="../index.html#contato" class="btn-banner-cta" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
+          Solicitar um site para meu escritório
+        </a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+/* ==========================================================================
+   LINK DIRETO — ESTILOS DOS PROJETOS DEMONSTRATIVOS
+   Top banner de demonstração + estilos compartilhados para conceitos
+   ========================================================================== */
+
+:root {
+  --banner-height: 48px;
+  --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+}
+
+/* Banner de Transparência no Topo do Projeto Demonstrativo */
+.demo-top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--banner-height);
+  background-color: #0B0C0E;
+  border-bottom: 2px solid #FCBE21;
+  color: #FFFFFF;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  font-family: var(--font-base);
+  font-size: 0.82rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.demo-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.demo-pill {
+  background: #FCBE21;
+  color: #0A0B0D;
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.demo-banner-text {
+  color: #D1D5DB;
+}
+
+.demo-banner-text strong {
+  color: #FFFFFF;
+}
+
+.demo-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.btn-banner-back {
+  color: #9CA3AF;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 150ms;
+}
+
+.btn-banner-back:hover {
+  color: #FFFFFF;
+}
+
+.btn-banner-cta {
+  background-color: #FCBE21;
+  color: #0A0B0D;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  transition: opacity 150ms, transform 150ms;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.btn-banner-cta:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* Espaçador para o conteúdo da página não ficar embaixo do banner */
+.demo-page-wrapper {
+  margin-top: var(--banner-height);
+  min-height: calc(100vh - var(--banner-height));
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer do Projeto Demonstrativo */
+.demo-footer {
+  margin-top: auto;
+  background-color: #08090B;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  font-family: var(--font-base);
+}
+
+.demo-footer-box {
+  max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.demo-footer h4 {
+  color: #FFFFFF;
+  font-size: 1.15rem;
+}
+
+.demo-footer p {
+  color: #9CA3AF;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --banner-height: 60px;
+  }
+  .demo-top-banner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1rem;
+    height: auto;
+    min-height: var(--banner-height);
+  }
+  .demo-banner-content {
+    font-size: 0.75rem;
+  }
+  .demo-banner-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
